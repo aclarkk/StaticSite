@@ -1,0 +1,30 @@
+{
+  "name": "staticSite",
+  "version": "1.0.0",
+  "description": "Base template for not having to write html & css when building simple static sites because that is not fun at all",
+  "scripts": {
+    "build-css": "node-sass --include-path scss scss/main.scss site/css/main.css",
+    "build-html": "pug ./templates/*.pug -o ./site --pretty",
+    "build": "npm run build-css & npm run build-html",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "watch-html": "nodemon -e pug -x \"npm run build-html\"",
+    "server": "httpster -d ./site",
+    "run": "npm run server & npm run watch-css & npm run watch-html"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Alan Clark",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "httpster": "^1.0.3",
+    "node-sass": "^3.8.0",
+    "nodemon": "^1.9.2",
+    "pug-cli": "^1.0.0-alpha6"
+  }
+}
